@@ -1,6 +1,6 @@
 local Accelerator = Instance.new("ScreenGui")
 Accelerator.Name = "Accelerator"
-    Accelerator.Parent = game:GetService('Players').LocalPlayer
+    Accelerator.Parent = game:GetService('Players').LocalPlayer.PlayerGui
     Accelerator.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
  
  
@@ -42,7 +42,7 @@ function Library:CreateWindow(name)
     Title.BorderSizePixel = 0
     Title.Size = UDim2.new(0, 150, 0, 30)
     Title.Font = Enum.Font.GothamBold
-    Title.Text = name
+    Title.Text = 'piss'
     Title.TextColor3 = Color3.fromRGB(255, 255, 255)
     Title.TextSize = 14.000
     
