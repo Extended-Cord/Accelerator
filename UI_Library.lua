@@ -1,11 +1,12 @@
-local Accelerator = Instance.new("ScreenGui")
-Accelerator.Name = "Accelerator"
-Accelerator.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-Accelerator.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
 
 local Library = {}
 
 function Library:CreateWindow()
+local Accelerator = Instance.new("ScreenGui")
+Accelerator.Name = "Accelerator"
+Accelerator.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Accelerator.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 local Tab = Instance.new("Frame")
 local Container = Instance.new("Frame")
 
