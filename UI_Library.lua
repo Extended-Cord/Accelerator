@@ -1,6 +1,6 @@
 local Accelerator = Instance.new("ScreenGui")
 Accelerator.Name = "Accelerator"
-    Accelerator.Parent = game:GetService('CoreGui')
+    Accelerator.Parent = game:GetService('Players').LocalPlayer
     Accelerator.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
  
  
