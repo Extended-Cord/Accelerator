@@ -4,7 +4,7 @@ local Accelerator = Instance.new("ScreenGui")
 Accelerator.Parent = game.CoreGui
 Accelerator.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-function Library:CreateWindow(title)
+function Library.CreateWindow(title)
 	local Tab = Instance.new("Frame")
 	local TabFrame = Instance.new("Frame")
 	local Container = Instance.new("Frame")
