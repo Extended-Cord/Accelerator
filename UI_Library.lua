@@ -52,27 +52,27 @@ function Library:CreateWindow(title)
 	Title.TextXAlignment = Enum.TextXAlignment.Left
 	
 	
-	local pog = {}
+	--local pog = {}
 	
-	function pog:CreateButton(text,callback)
-		callback = callback or function() end
-		local Button = Instance.new("TextButton")
-		Button.Name = "Button"
-		Button.Parent = Container
-		Button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-		Button.BackgroundTransparency = 0.800
-		Button.BorderSizePixel = 0
-		Button.Position = UDim2.new(0.0666666701, 0, 0, 0)
-		Button.Size = UDim2.new(0, 150, 0, 30)
-		Button.Font = Enum.Font.GothamBold
-		Button.Text = text
-		Button.TextColor3 = Color3.fromRGB(255, 255, 255)
-		Button.TextSize = 14.000
+	--function pog:CreateButton(text,callback)
+	--	callback = callback or function() end
+	--	local Button = Instance.new("TextButton")
+	--	Button.Name = "Button"
+	--	Button.Parent = Container
+	--	Button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	--	Button.BackgroundTransparency = 0.800
+	--	Button.BorderSizePixel = 0
+	--	Button.Position = UDim2.new(0.0666666701, 0, 0, 0)
+	--	Button.Size = UDim2.new(0, 150, 0, 30)
+	--	Button.Font = Enum.Font.GothamBold
+	--	Button.Text = text
+	--	Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+	--	Button.TextSize = 14.000
 
-		Button.MouseButton1Click:Connect(callback)
-	end
+	--	Button.MouseButton1Click:Connect(callback)
+	--end
 	
-	return pog
+	--return pog
 	
 end
 
