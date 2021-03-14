@@ -36,6 +36,7 @@ WIP_Text.Font = Enum.Font.GothamBold
 WIP_Text.Text = "Nothing here so far"
 WIP_Text.TextColor3 = Color3.fromRGB(255, 255, 255)
 WIP_Text.TextSize = 14.000
+WIP_Text.TextTransparency = 1
 
 White.Name = "White"
 White.Parent = Accelerator_Intro
