@@ -168,7 +168,7 @@ function Library:CreateWindow(title)
 
 
 		LabelContainer.Name = "LabelContainer"
-		LabelContainer.Parent = game.StarterGui.UI.Tab.Container
+		LabelContainer.Parent = Container
 		LabelContainer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 		LabelContainer.BackgroundTransparency = 0.300
 		LabelContainer.BorderSizePixel = 0
