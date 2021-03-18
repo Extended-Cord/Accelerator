@@ -1,14 +1,55 @@
 local Library = {}
 local UI = Instance.new("ScreenGui")
 UI.Name = "UI"
-UI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+UI.Parent = game.CoreGui
 UI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+function dragify(Frame) -- Skidded asf ikr
+	dragToggle = nil
+	dragSpeed = .25
+	dragInput = nil
+	dragStart = nil
+	dragPos = nil
+
+	function updateInput(input)
+		Delta = input.Position - dragStart
+		Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+		game:GetService("TweenService"):Create(Frame, TweenInfo.new(.25), {Position = Position}):Play()
+	end
+
+	Frame.InputBegan:Connect(function(input)
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
+			dragToggle = true
+			dragStart = input.Position
+			startPos = Frame.Position
+			input.Changed:Connect(function()
+				if (input.UserInputState == Enum.UserInputState.End) then
+					dragToggle = false
+				end
+			end)
+		end
+	end)
+
+	Frame.InputChanged:Connect(function(input)
+		if (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+			dragInput = input
+		end
+	end)
+
+	game:GetService("UserInputService").InputChanged:Connect(function(input)
+		if (input == dragInput and dragToggle) then
+			updateInput(input)
+		end
+	end)
+end
 
 function Library:CreateWindow(title)
 	local Tab = Instance.new("Frame")
 	local Container = Instance.new("Frame")
 	local Layout = Instance.new("UIListLayout")
 	local Title = Instance.new("TextLabel")
+	
+	dragify(Tab)
 	
 	Tab.Name = "Tab"
 	Tab.Parent = UI
@@ -41,7 +82,7 @@ function Library:CreateWindow(title)
 	Title.Position = UDim2.new(0.0666666701, 0, 0, 0)
 	Title.Size = UDim2.new(0, 130, 0, 30)
 	Title.Font = Enum.Font.GothamBold
-	Title.Text = "UI Library Tab"
+	Title.Text = title
 	Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 	Title.TextSize = 14.000
 	Title.TextXAlignment = Enum.TextXAlignment.Left
