@@ -160,6 +160,34 @@ function Library:CreateWindow(title)
 			callback(toggled)
 		end)
 	end
+	
+	function epicLibrary:CreateLabel(text)
+
+		local LabelContainer = Instance.new("Frame")
+		local Label = Instance.new("TextLabel")
+
+
+		LabelContainer.Name = "LabelContainer"
+		LabelContainer.Parent = game.StarterGui.UI.Tab.Container
+		LabelContainer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		LabelContainer.BackgroundTransparency = 0.300
+		LabelContainer.BorderSizePixel = 0
+		LabelContainer.Size = UDim2.new(0, 150, 0, 30)
+
+		Label.Name = "Label"
+		Label.Parent = LabelContainer
+		Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		Label.BackgroundTransparency = 1.000
+		Label.BorderSizePixel = 0
+		Label.Position = UDim2.new(0.0666666627, 0, 0, 0)
+		Label.Size = UDim2.new(0, 130, 0, 30)
+		Label.Font = Enum.Font.GothamBold
+		Label.TextColor3 = Color3.fromRGB(255, 255, 255)
+		Label.TextSize = 14.000
+		Label.TextXAlignment = Enum.TextXAlignment.Left
+		Label.Text = text
+	end
+	
 	return epicLibrary;
 end
 
