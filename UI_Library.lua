@@ -1,44 +1,39 @@
 local Library = {}
+local UI = Instance.new("ScreenGui")
+UI.Name = "UI"
+UI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+UI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-local Accelerator = Instance.new("ScreenGui")
-Accelerator.Parent = game.CoreGui
-Accelerator.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-function Library.CreateWindow(title)
+function Library:CreateWindow(title)
 	local Tab = Instance.new("Frame")
-	local TabFrame = Instance.new("Frame")
 	local Container = Instance.new("Frame")
-	local Padding = Instance.new("UIListLayout")
+	local Layout = Instance.new("UIListLayout")
 	local Title = Instance.new("TextLabel")
-
+	
 	Tab.Name = "Tab"
-	Tab.Parent = Accelerator
-	Tab.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
-	Tab.BackgroundTransparency = 0.200
+	Tab.Parent = UI
+	Tab.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	Tab.BackgroundTransparency = 0.300
+	Tab.BorderColor3 = Color3.fromRGB(27, 42, 53)
 	Tab.BorderSizePixel = 0
-	Tab.Position = UDim2.new(0.104797974, 0, 0.167202562, 0)
+	Tab.Position = UDim2.new(0.437956214, 0, 0.292604506, 0)
 	Tab.Size = UDim2.new(0, 150, 0, 30)
 
-	TabFrame.Name = "TabFrame"
-	TabFrame.Parent = Tab
-	TabFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	TabFrame.BackgroundTransparency = 0.200
-	TabFrame.BorderSizePixel = 0
-	TabFrame.Position = UDim2.new(0, 0, 1, 0)
-	TabFrame.Size = UDim2.new(0, 150, 0, 300)
-
 	Container.Name = "Container"
-	Container.Parent = TabFrame
-	Container.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Container.Parent = Tab
+	Container.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 	Container.BackgroundTransparency = 1.000
 	Container.BorderSizePixel = 0
-	Container.Size = UDim2.new(0, 150, 0, 300)
+	Container.Position = UDim2.new(0, 0, 1, 0)
+	Container.Size = UDim2.new(0, 150, 0, 0)
+	
 
-	Padding.Name = "Padding"
-	Padding.Parent = Container
-	Padding.HorizontalAlignment = Enum.HorizontalAlignment.Center
-	Padding.SortOrder = Enum.SortOrder.LayoutOrder
-	Title.Name = "Title"
+	Layout.Name = "Layout"
+	Layout.Parent = Container
+	Layout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	Layout.SortOrder = Enum.SortOrder.LayoutOrder
+	
+	Title.Name = "Title"                                                                                                                                              
 	Title.Parent = Tab
 	Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	Title.BackgroundTransparency = 1.000
@@ -46,36 +41,90 @@ function Library.CreateWindow(title)
 	Title.Position = UDim2.new(0.0666666701, 0, 0, 0)
 	Title.Size = UDim2.new(0, 130, 0, 30)
 	Title.Font = Enum.Font.GothamBold
-	Title.Text = "Auto Farms"
+	Title.Text = "UI Library Tab"
 	Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 	Title.TextSize = 14.000
 	Title.TextXAlignment = Enum.TextXAlignment.Left
 	
+	local epicLibrary = {}
 	
-	--local pog = {}
-	
-	--function pog:CreateButton(text,callback)
-	--	callback = callback or function() end
-	--	local Button = Instance.new("TextButton")
-	--	Button.Name = "Button"
-	--	Button.Parent = Container
-	--	Button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	--	Button.BackgroundTransparency = 0.800
-	--	Button.BorderSizePixel = 0
-	--	Button.Position = UDim2.new(0.0666666701, 0, 0, 0)
-	--	Button.Size = UDim2.new(0, 150, 0, 30)
-	--	Button.Font = Enum.Font.GothamBold
-	--	Button.Text = text
-	--	Button.TextColor3 = Color3.fromRGB(255, 255, 255)
-	--	Button.TextSize = 14.000
+	function epicLibrary:CreateButton(text,callback)
+		
+		callback = callback or function() end
+		local ButtonContainer = Instance.new("Frame")
+		local Button = Instance.new("TextButton")
+		
+		ButtonContainer.Name = "ButtonContainer"
+		ButtonContainer.Parent = Container
+		ButtonContainer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		ButtonContainer.BackgroundTransparency = 0.300
+		ButtonContainer.BorderSizePixel = 0
+		ButtonContainer.Size = UDim2.new(0, 150, 0, 30)
 
-	--	Button.MouseButton1Click:Connect(callback)
-	--end
+		Button.Name = "Button"
+		Button.Parent = ButtonContainer
+		Button.AnchorPoint = Vector2.new(0.5, 0)
+		Button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		Button.BackgroundTransparency = 1.000
+		Button.BorderSizePixel = 0
+		Button.Position = UDim2.new(0.5, 0, 0, 0)
+		Button.Size = UDim2.new(0, 130, 0, 30)
+		Button.Font = Enum.Font.GothamBold
+		Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+		Button.TextSize = 14.000
+		Button.TextXAlignment = Enum.TextXAlignment.Left
+		Button.Text = text
+		Button.MouseButton1Click:Connect(callback)
+	end
 	
-	--return pog
-	
+	function epicLibrary:CreateToggle(text,status,callback)
+		local toggled = status
+		local ToggleContainer = Instance.new("Frame")
+		local Toggle = Instance.new("TextButton")
+		
+		ToggleContainer.Name = "ToggleContainer"
+		ToggleContainer.Parent = Container
+		ToggleContainer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		ToggleContainer.BackgroundTransparency = 0.300
+		ToggleContainer.BorderSizePixel = 0
+		ToggleContainer.Size = UDim2.new(0, 150, 0, 30)
+
+		Toggle.Name = "Toggle"
+		Toggle.Parent = ToggleContainer
+		Toggle.AnchorPoint = Vector2.new(0.5, 0)
+		Toggle.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		Toggle.BackgroundTransparency = 1.000
+		Toggle.BorderSizePixel = 0
+		Toggle.Position = UDim2.new(0.5, 0, 0, 0)
+		Toggle.Size = UDim2.new(0, 130, 0, 30)
+		Toggle.Font = Enum.Font.GothamBold
+		Toggle.Text = text
+		Toggle.TextColor3 = Color3.fromRGB(255, 255, 255)
+		Toggle.TextSize = 14.000
+		Toggle.TextXAlignment = Enum.TextXAlignment.Left
+		
+		if toggled == true then
+			ToggleContainer.BackgroundColor3 = Color3.fromRGB(255,0,0)
+		else
+			ToggleContainer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		end
+		
+		Toggle.MouseButton1Click:Connect(function()
+			toggled = not toggled
+			if toggled == true then
+				ToggleContainer.BackgroundColor3 = Color3.fromRGB(255,0,0)
+			else
+				ToggleContainer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+			end
+			callback(toggled)
+		end)
+	end
+	return epicLibrary;
 end
 
-return Library
+	return Library;
+
+
+
 
 
