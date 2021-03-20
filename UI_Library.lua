@@ -99,7 +99,7 @@ function Library:CreateTab(title)
 			Toggled = not Toggled
 
 			if Toggled == true then
-				Toggle.BackgroundColor3 = Color3.fromRGB(252, 152, 7)
+				Toggle.BackgroundColor3 = Color3.fromRGB(152, 252, 7)
 			else
 				Toggle.BackgroundColor3 = Color3.fromRGB(54, 71, 96)
 			end
