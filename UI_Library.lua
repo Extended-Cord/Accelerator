@@ -15,6 +15,7 @@ game.ContextActionService:BindAction("keyPress", onKeyPress, false, Enum.KeyCode
 local Library = {}
 
 Library.Tabs = 1
+Library.GUI = UI
 
 function Library:CreateTab(title)
 	local Tab = Instance.new("Frame")
