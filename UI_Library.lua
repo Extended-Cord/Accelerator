@@ -94,12 +94,19 @@ function Library:CreateTab(title)
 		Toggle.Text = text
 		Toggle.TextColor3 = Color3.fromRGB(255, 255, 255)
 		Toggle.TextSize = 14.000
-
+		
+		if Toggled == true then
+				Toggle.BackgroundColor3 = Color3.fromRGB(7,152,252)
+			else
+				Toggle.BackgroundColor3 = Color3.fromRGB(54, 71, 96)
+			end
+		
+		
 		Toggle.MouseButton1Click:Connect(function()
 			Toggled = not Toggled
 
 			if Toggled == true then
-				Toggle.BackgroundColor3 = Color3.fromRGB(152, 252, 7)
+				Toggle.BackgroundColor3 = Color3.fromRGB(7,152,252)
 			else
 				Toggle.BackgroundColor3 = Color3.fromRGB(54, 71, 96)
 			end
